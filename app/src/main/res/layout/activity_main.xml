@@ -54,11 +54,12 @@
                 android:layout_below="@+id/avengers_title"
                 android:layout_toRightOf="@+id/avengers_image"
                 style="@style/marginLeftFromPreviewImage"
+                android:onClick="linkToYoutube"
              />
 
     </RelativeLayout>
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout
         style="@style/movieLayout"
         android:orientation="vertical" >
         <TextView
