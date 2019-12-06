@@ -18,6 +18,7 @@
         />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+
     <RelativeLayout
         style="@style/movieLayout"
         android:paddingTop="5dp">
@@ -57,7 +58,6 @@
             android:layout_toRightOf="@+id/avengers_image"
             android:layout_below="@+id/avengers_title"
             style="@style/marginLeftFromPreviewImage"
-            android:layout_marginTop="30dp"
             />
 
         <TextView
@@ -69,14 +69,12 @@
             android:layout_toRightOf="@+id/released"
             android:layout_below="@+id/avengers_title"
             style="@style/marginLeftFromPreviewImage"
-            android:layout_marginTop="30dp"
             />
 
             <Button
                 android:id="@+id/avengers_trailer_button"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:layout_marginTop="30dp"
                 android:text="@string/movie_trailer"
                 android:layout_below="@+id/released"
                 android:layout_toRightOf="@+id/avengers_image"
@@ -86,8 +84,13 @@
 
     </RelativeLayout>
 
-    <LinearLayout
+    <ScrollView
+
         style="@style/movieLayout"
+        android:fillViewport="true">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:orientation="vertical" >
         <TextView
             android:text="@string/overview_title"
@@ -103,5 +106,5 @@
             android:textSize="15sp"
             />
     </LinearLayout>
-
+    </ScrollView>
 </LinearLayout>
