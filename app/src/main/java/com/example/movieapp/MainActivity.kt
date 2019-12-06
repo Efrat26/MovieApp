@@ -15,7 +15,8 @@ class MainActivity : AppCompatActivity() {
 
     fun linkToYoutube(view : View){
 
-        val webpage: Uri = Uri.parse("https://www.youtube.com/watch?v=6ZfuNTqbHE8")
+        val url = "https://www.youtube.com/watch?v=6ZfuNTqbHE8"
+        val webpage: Uri = Uri.parse(url)
         val intent = Intent(Intent.ACTION_VIEW, webpage)
         if (intent.resolveActivity(packageManager) != null) {
             startActivity(intent)

@@ -45,13 +45,40 @@
             style="@style/marginLeftFromPreviewImage"
             />
 
+
+        <TextView
+            android:text="@string/released"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="@color/colorAccent"
+            android:id="@+id/released"
+            android:layout_toRightOf="@+id/avengers_image"
+            android:layout_below="@+id/avengers_title"
+            style="@style/marginLeftFromPreviewImage"
+            android:layout_marginTop="30dp"
+            />
+
+        <TextView
+            android:text="@string/avengers_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:textColor="@color/black"
+            android:layout_toRightOf="@+id/released"
+            android:layout_below="@+id/avengers_title"
+            style="@style/marginLeftFromPreviewImage"
+            android:layout_marginTop="30dp"
+            />
+
             <Button
-                android:id="@+id/button_id"
+                android:id="@+id/avengers_trailer_button"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="30dp"
                 android:text="@string/movie_trailer"
-                android:layout_below="@+id/avengers_title"
+                android:layout_below="@+id/released"
                 android:layout_toRightOf="@+id/avengers_image"
                 style="@style/marginLeftFromPreviewImage"
                 android:onClick="linkToYoutube"
