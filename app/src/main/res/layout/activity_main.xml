@@ -7,16 +7,15 @@
     android:orientation="vertical"
     android:layout_marginTop="0dp">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        style="@style/movieLayout">
     <ImageView
+        android:layout_weight="1"
         android:layout_height="match_parent"
         android:layout_width="match_parent"
         android:contentDescription="@string/avengers_background_image_description"
         android:src="@drawable/avengers_infinity_war_background"
         android:scaleType="fitXY"
         />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 
     <RelativeLayout
@@ -32,6 +31,7 @@
             android:contentDescription="@string/avengers_background_image_description"
             android:src="@drawable/avengers_infinity_war"
             android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
             />
 
         <TextView
@@ -44,6 +44,7 @@
             android:id="@+id/avengers_title"
             android:layout_toRightOf="@+id/avengers_image"
             style="@style/marginLeftFromPreviewImage"
+            android:layout_centerHorizontal="true"
             />
 
 
