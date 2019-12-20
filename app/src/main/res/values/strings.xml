@@ -7,4 +7,22 @@
     <string name="movie_trailer">MOVIE TRAILER</string>
     <string name="released">Released:</string>
     <string name="avengers_date">2018-01-01</string>
+    <string name="jurassic_world">Jurassic World</string>
+    <string name="the_meg">The Meg</string>
+    <string name="the_first_purge">The First Purge</string>
+    <string name="Deadpool2">Deadpool 2</string>
+    <string name="black_panther">Black Panther</string>
+    <string name="ocean8">Ocean\'s 8</string>
+    <string name="interstellar">Interstellar</string>
+    <string name="thor">Thor Ragnarok</string>
+    <string name="guardians_of_the_galaxy">Guardians Of The Galaxy</string>
+    <string name="jurassic_world_overview">Located off the coast of Costa Rica, the Jurassic World luxury resort provides a habitat for an array of genetically engineered dinosaurs, including the vicious and intelligent Indominus rex. When the massive creature escapes, it sets off a chain reaction that causes the other dinos to run amok. Now, it\'s up to a former military man and animal expert (Chris Pratt) to use his special skills to save two young brothers and the rest of the tourists from an all-out, prehistoric assault.</string>
+    <string name="the_meg_overview">Previously thought to be extinct, a massive creature attacks a deep-sea submersible, leaving it disabled and trapping the crew at the bottom of the Pacific. With time running out, a visionary oceanographer recruits rescue diver Jonas Taylor to save the crew and the sea itself from an unimaginable threat -- a 75-foot-long prehistoric shark known as the Megalodon.</string>
+    <string name="the_first_purge_overview">To push the crime rate below one percent for the rest of the year, the New Founding Fathers of America test a sociological theory that vents aggression for one night in one isolated community. But when the violence of oppressors meets the rage of the others, the contagion will explode from the trial-city borders and spread across the nation.</string>
+    <string name="Deadpool2_overview">Wisecracking mercenary Deadpool meets Russell, an angry teenage mutant who lives at an orphanage. When Russell becomes the target of Cable -- a genetically enhanced soldier from the future -- Deadpool realizes that he\'ll need some help saving the boy from such a superior enemy. He soon joins forces with Bedlam, Shatterstar, Domino and other powerful mutants to protect young Russell from Cable and his advanced weaponry.</string>
+    <string name="black_panther_overview">After the death of his father, T\'Challa returns home to the African nation of Wakanda to take his rightful place as king. When a powerful enemy suddenly reappears, T\'Challa\'s mettle as king -- and as Black Panther -- gets tested when he\'s drawn into a conflict that puts the fate of Wakanda and the entire world at risk. Faced with treachery and danger, the young king must rally his allies and release the full power of Black Panther to defeat his foes and secure the safety of his people.</string>
+    <string name="ocean8_overview">Five years, eight months, 12 days and counting -- that\'s how long Debbie Ocean has been devising the biggest heist of her life. She knows what it\'s going to take -- a team of the best people in the field, starting with her partner-in-crime Lou Miller. Together, they recruit a crew of specialists, including jeweler Amita, street con Constance, suburban mom Tammy, hacker Nine Ball, and fashion designer Rose. Their target -- a necklace that's worth more than $150 million.</string>
+    <string name="interstellar_overview">In Earth\'s future, a global crop blight and second Dust Bowl are slowly rendering the planet uninhabitable. Professor Brand (Michael Caine), a brilliant NASA physicist, is working on plans to save mankind by transporting Earth\'s population to a new home via a wormhole. But first, Brand must send former NASA pilot Cooper (Matthew McConaughey) and a team of researchers through the wormhole and across the galaxy to find out which of three planets could be mankind\'s new home.</string>
+    <string name="thor_overview">Imprisoned on the other side of the universe, the mighty Thor finds himself in a deadly gladiatorial contest that pits him against the Hulk, his former ally and fellow Avenger. Thor\'s quest for survival leads him in a race against time to prevent the all-powerful Hela from destroying his home world and the Asgardian civilization.</string>
+
 </resources>
