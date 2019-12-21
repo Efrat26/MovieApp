@@ -5,16 +5,15 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
-abstract class MoviesViewAdapter(
-    context: Context
-) : RecyclerView.Adapter<ViewHolder>() {
+class Movie_Adapter(context: Context,
+                    private val movieClickListener: OnMovieClickListener) : RecyclerView.Adapter<ViewHolder>() {
 
     private val movies = mutableListOf<MovieModel>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = layoutInflater
             .inflate(R.layout.activity_movies, parent, false)
-        return ViewHolder(view)
+        return ViewHolder(view, movieClickListener)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -38,3 +37,4 @@ abstract class MoviesViewAdapter(
 
 
 }
+
