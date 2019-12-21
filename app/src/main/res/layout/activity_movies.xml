@@ -9,6 +9,7 @@
         android:id="@+id/movie_photo"
         android:layout_width="90dp"
         android:layout_height="0dp"
+        android:paddingTop="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -17,6 +18,8 @@
     <TextView
         android:id="@+id/movie_title"
         android:layout_width="0dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="5dp"
         android:textSize="@dimen/movie_title"
         android:textColor="@android:color/holo_red_light"
         android:layout_height="wrap_content"
@@ -26,7 +29,7 @@
         tools:text="@string/Deadpool2" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/movie_overview"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:textSize="@dimen/movie_overview"
