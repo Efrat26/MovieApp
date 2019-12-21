@@ -1,16 +1,39 @@
 package com.example.movieapp
-
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
+import kotlinx.android.synthetic.main.activity_movies__recycler_view.*
 
-class MoviesActivity : AppCompatActivity() {
+class MoviesActivity : AppCompatActivity(), OnMovieClickListener {
+    override fun onMovieClicked(movieModel: MovieModel, position: Int) {
+        Toast.makeText(this, movieModel.name + " in poistion " + position + " was clicked",
+            Toast.LENGTH_SHORT).show()
+
+    }
 
     private val movies: MutableList<MovieModel> = mutableListOf()
+
+    private lateinit  var movie_Adapter : Movie_Adapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_movies)
         loadMovies()
+        initRecyclerView()
+    }
+
+    private fun initRecyclerView() {
+        movies_rv_list.layoutManager = LinearLayoutManager(this@MoviesActivity)
+        // Create Movies Adapter
+        movie_Adapter = Movie_Adapter(
+            context = this@MoviesActivity,
+            movieClickListener = this@MoviesActivity
+        )
+        // Attach Adapter to RecyclerView
+        movies_rv_list.adapter = movie_Adapter
+        // Populate Adapter with data
+        movie_Adapter.setData(movies)
     }
 
     private fun loadMovies() {
