@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.activity_movies__recycler_view.*
+import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MoviesActivity : AppCompatActivity(), OnMovieClickListener {

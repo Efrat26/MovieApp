@@ -42,7 +42,7 @@
             android:textStyle="bold"
             android:textColor="@color/colorAccent"
             android:id="@+id/avengers_title"
-            android:layout_toRightOf="@+id/avengers_image"
+            android:layout_toRightOf="@+id/&quot;@+id/details_fragment_poster&quot;"
             style="@style/marginLeftFromPreviewImage"
 
             />
@@ -56,7 +56,7 @@
             android:textStyle="bold"
             android:textColor="@color/colorAccent"
             android:id="@+id/released"
-            android:layout_toRightOf="@+id/avengers_image"
+            android:layout_toRightOf="@+id/&quot;@+id/details_fragment_poster&quot;"
             android:layout_below="@+id/avengers_title"
             style="@style/marginLeftFromPreviewImage"
             />
@@ -78,7 +78,7 @@
                 android:layout_width="wrap_content"
                 android:text="@string/movie_trailer"
                 android:layout_below="@+id/released"
-                android:layout_toRightOf="@+id/avengers_image"
+                android:layout_toRightOf="@+id/&quot;@+id/details_fragment_poster&quot;"
                 style="@style/marginLeftFromPreviewImage"
                 android:onClick="linkToYoutube"
              />

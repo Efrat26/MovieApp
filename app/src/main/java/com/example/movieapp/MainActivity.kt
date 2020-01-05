@@ -5,14 +5,22 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.movie_details.*
 
 class MainActivity : AppCompatActivity() {
     private val avengers_url = "https://www.youtube.com/watch?v=6ZfuNTqbHE8"
-    override fun onCreate(savedInstanceState: Bundle?) {
+    override protected fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val moviesFragment = MoviesFragment()
+
+        supportFragmentManager
+            .beginTransaction()
+            .add(R.id.activity_main_frame, moviesFragment)
+            .commit()
     }
+
 
     fun linkToYoutube(view : View){
         var webpage : Uri = Uri.EMPTY
