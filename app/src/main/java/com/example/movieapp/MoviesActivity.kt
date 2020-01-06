@@ -5,6 +5,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.fragment_movies.*
 
 
 class MoviesActivity : AppCompatActivity(), OnMovieClickListener {
@@ -33,7 +34,7 @@ class MoviesActivity : AppCompatActivity(), OnMovieClickListener {
     private fun initRecyclerView() {
         //val movies_rv_list = movies_rv_list as RecyclerView
         //val recycler_view = RecyclerView(this)
-        movies_rv_list.layoutManager = LinearLayoutManager(this@MoviesActivity) as RecyclerView.LayoutManager
+        movies_fragment_rcv.layoutManager = LinearLayoutManager(this@MoviesActivity) as RecyclerView.LayoutManager
         // Create Movies Adapter
         movie_Adapter = Movie_Adapter(
             context = this@MoviesActivity,
@@ -41,7 +42,7 @@ class MoviesActivity : AppCompatActivity(), OnMovieClickListener {
         )
 
             // Attach Adapter to RecyclerView
-        movies_rv_list.adapter = movie_Adapter
+        movies_fragment_rcv.adapter = movie_Adapter
        // recycler_view.layoutManager = LinearLayoutManager(this@MoviesActivity)
 
         // Populate Adapter with data

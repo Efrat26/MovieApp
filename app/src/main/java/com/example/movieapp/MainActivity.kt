@@ -7,7 +7,7 @@ import android.os.Bundle
 import android.view.View
 import kotlinx.android.synthetic.main.movie_details.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), OnMovieClickListener{
     private val avengers_url = "https://www.youtube.com/watch?v=6ZfuNTqbHE8"
     override protected fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,9 +22,21 @@ class MainActivity : AppCompatActivity() {
     }
 
 
+
+    override fun onMovieClicked(movie: MovieModel) {
+
+        val detailsFragment = DetailsFragment.newInstance(movie)
+
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.activity_main_frame, detailsFragment)
+            .commit()
+    }
+
+
     fun linkToYoutube(view : View){
         var webpage : Uri = Uri.EMPTY
-        if(view.id == avengers_trailer_button.id) {
+        if(view.id == details_fragment_trailer_btn.id) {
             webpage = Uri.parse(avengers_url)
         }
         if(webpage != Uri.EMPTY) {

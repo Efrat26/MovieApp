@@ -1,6 +1,7 @@
 package com.example.movieapp
 
 
+import android.content.Context
 import android.os.Bundle
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
@@ -15,18 +16,26 @@ class MoviesFragment : Fragment(), OnMovieClickListener  {
     private lateinit var moviesAdapter: Movie_Adapter
 
     private lateinit var moviesRcv: RecyclerView
+
+
+    private var listener: OnMovieClickListener? = null
+
+    override fun onAttach(context: Context?) {
+        super.onAttach(context)
+        if (context is OnMovieClickListener) {
+            listener = context
+        }
+    }
+
+
     override fun onCreateView(inflater: LayoutInflater,
                               container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
 
         val view = inflater.inflate(R.layout.fragment_movies, container, false)
-
         moviesRcv = view.findViewById(R.id.movies_fragment_rcv)
-
         loadMovies()
-
         initRecyclerView()
-
         return view
     }
 
@@ -44,11 +53,15 @@ class MoviesFragment : Fragment(), OnMovieClickListener  {
     }
 
 
-    override fun onMovieClicked(movieModel: MovieModel) {
-        // Toast.makeText(this, movieModel.name + " in position " + position + " was clicked",
-        //Toast.LENGTH_SHORT).show()
-       // Toast.makeText(this, movieModel.name, Toast.LENGTH_SHORT).show()
+    override fun onDetach() {
+        super.onDetach()
+        listener = null
     }
+
+    override fun onMovieClicked(movie: MovieModel) {
+        listener?.onMovieClicked(movie)
+    }
+
 
     private fun loadMovies() {
         movies.add(

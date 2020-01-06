@@ -8,8 +8,9 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import kotlinx.android.synthetic.main.movie_details.*
 
-class DetailsFragment : Fragment() {
+class DetailsFragment() : Fragment() {
 
 
     private lateinit var posterImage: ImageView
@@ -30,12 +31,32 @@ class DetailsFragment : Fragment() {
     }
 
     private fun initViews(view: View) {
-        posterImage = view.findViewById(R.id.avengers_image)
+        posterImage = view.findViewById(R.id.details_fragment_poster)
         titleText = view.findViewById(R.id.details_fragment_title)
         releaseDateText = view.findViewById(R.id.details_fragment_release_date)
         trailerButton = view.findViewById(R.id.details_fragment_trailer_btn)
-        overviewText = view.findViewById(R.id.details_fragment_overview_text
+        overviewText = view.findViewById(R.id.details_fragment_overview_text)
     }
+
+    companion object {
+        private const val MOVIE_BUNDLE_KEY = "unique_movie_key"
+
+        fun newInstance(movie: MovieModel): DetailsFragment {
+            val fragment = DetailsFragment()
+            val args = Bundle()
+            args.putParcelable(MOVIE_BUNDLE_KEY, movie)
+            fragment.arguments = args
+            return fragment
+        }
+    }
+
+    fun loadMovie(movie: MovieModel) {
+        details_fragment_overview_text.text = movie.overview
+        posterImage.setImageResource(movie.imageRes)
+    }
+
+
+
 
 
 
