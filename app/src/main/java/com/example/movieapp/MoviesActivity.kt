@@ -24,33 +24,18 @@ class MoviesActivity : AppCompatActivity(), OnMovieClickListener {
 
     private lateinit  var movie_Adapter : Movie_Adapter
 
-    override fun onCreate(savedInstanceState: Bundle?) {
+    override protected fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_movies)
-        //loadMovies()
-        initRecyclerView()
+        setContentView(R.layout.activity_main)
+
+        val moviesFragment = MoviesFragment()
+
+        supportFragmentManager
+            .beginTransaction()
+            .add(R.id.activity_main_frame, moviesFragment)
+            .commit()
     }
 
-    private fun initRecyclerView() {
-        //val movies_rv_list = movies_rv_list as RecyclerView
-        //val recycler_view = RecyclerView(this)
-        movies_fragment_rcv.layoutManager = LinearLayoutManager(this@MoviesActivity) as RecyclerView.LayoutManager
-        // Create Movies Adapter
-        movie_Adapter = Movie_Adapter(
-            context = this@MoviesActivity,
-            movieClickListener = this@MoviesActivity
-        )
-
-            // Attach Adapter to RecyclerView
-        movies_fragment_rcv.adapter = movie_Adapter
-       // recycler_view.layoutManager = LinearLayoutManager(this@MoviesActivity)
-
-        // Populate Adapter with data
-        movie_Adapter.setData(movies)
-
-       // val view_holder = movie_Adapter.onCreateViewHolder(recycler_view, recycler_view.layerType)
-        //movie_Adapter.onBindViewHolder(view_holder, 0)
-    }
 
 
 

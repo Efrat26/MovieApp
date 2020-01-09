@@ -11,7 +11,7 @@ import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.movie_details.*
 
 class DetailsFragment() : Fragment() {
-
+/*
 
     private lateinit var posterImage: ImageView
     private lateinit var titleText: TextView
@@ -60,6 +60,6 @@ class DetailsFragment() : Fragment() {
 
 
 
-
+*/
 
 }

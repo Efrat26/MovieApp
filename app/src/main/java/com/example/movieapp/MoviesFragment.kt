@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 
 class MoviesFragment : Fragment(), OnMovieClickListener  {
 
@@ -31,7 +32,6 @@ class MoviesFragment : Fragment(), OnMovieClickListener  {
     override fun onCreateView(inflater: LayoutInflater,
                               container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-
         val view = inflater.inflate(R.layout.fragment_movies, container, false)
         moviesRcv = view.findViewById(R.id.movies_fragment_rcv)
         loadMovies()
@@ -47,6 +47,7 @@ class MoviesFragment : Fragment(), OnMovieClickListener  {
             // Attach Adapter to RecyclerView
             moviesRcv.adapter = moviesAdapter
 
+            moviesRcv.layoutManager = LinearLayoutManager(it)
             // Populate Adapter with data
             moviesAdapter.setData(movies)
         }
