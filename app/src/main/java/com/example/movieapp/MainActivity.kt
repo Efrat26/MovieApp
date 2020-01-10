@@ -12,28 +12,29 @@ class MainActivity : AppCompatActivity(), OnMovieClickListener{
     override protected fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        if (savedInstanceState == null) {
+            val moviesFragment = MoviesFragment()
 
-        val moviesFragment = MoviesFragment()
-
-        supportFragmentManager
-            .beginTransaction()
-            .add(R.id.activity_main_frame, moviesFragment)
-            .commit()
+            supportFragmentManager
+                .beginTransaction()
+                .add(R.id.activity_main_frame, moviesFragment)
+                .commit()
+        }
     }
 
 
+    override fun onBackPressed() {
+        super.onBackPressed()
+    }
 
     override fun onMovieClicked(movie: MovieModel) {
-/*
         val detailsFragment = DetailsFragment.newInstance(movie)
 
         supportFragmentManager
             .beginTransaction()
+            .addToBackStack(null)
             .replace(R.id.activity_main_frame, detailsFragment)
             .commit()
-
-
- */
     }
 
 

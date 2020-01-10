@@ -8,10 +8,9 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import kotlinx.android.synthetic.main.movie_details.*
 
-class DetailsFragment() : Fragment() {
-/*
+class DetailsFragment : Fragment() {
+
 
     private lateinit var posterImage: ImageView
     private lateinit var titleText: TextView
@@ -24,9 +23,9 @@ class DetailsFragment() : Fragment() {
                               savedInstanceState: Bundle?): View? {
 
         val view = inflater.inflate(R.layout.movie_details, container, false)
-
+        val movie: MovieModel? = arguments?.getParcelable(MOVIE_BUNDLE_KEY)
         initViews(view)
-
+        movie?.let(::loadMovie)
         return view
     }
 
@@ -51,15 +50,8 @@ class DetailsFragment() : Fragment() {
     }
 
     fun loadMovie(movie: MovieModel) {
-        details_fragment_overview_text.text = movie.overview
+        overviewText.text = movie.overview
         posterImage.setImageResource(movie.imageRes)
     }
-
-
-
-
-
-
-*/
 
 }

@@ -28,7 +28,6 @@ private class MoviesDiffUtilCallback : DiffUtil.ItemCallback<MovieModel>() {
 class Movie_Adapter(context: Context,
                     private val movieClickListener: OnMovieClickListener) : RecyclerView.Adapter<Movie_Adapter.ViewHolder>() {
 
-   // private val movies = mutableListOf<MovieModel>()
 
     private val layoutInflater: LayoutInflater = context
         .getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
@@ -42,7 +41,6 @@ class Movie_Adapter(context: Context,
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = layoutInflater
             .inflate(R.layout.activity_movies, parent, false)
-        println("adapter on create")
         return ViewHolder(view, movieClickListener)
     }
 
@@ -50,15 +48,11 @@ class Movie_Adapter(context: Context,
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val movieModel = asyncListDiffer.currentList[position]
         holder.bind(movieModel)
-        println("adapter on bind")
 
     }
 
     fun setData(newItems: List<MovieModel>){
         asyncListDiffer.submitList(newItems)
-    //   movies.clear()
-       // movies.addAll(newItems)
-       // notifyDataSetChanged()
     }
 
 
@@ -73,15 +67,11 @@ class Movie_Adapter(context: Context,
         private lateinit var movieModel: MovieModel
         init {
             view.setOnClickListener {
-                println("view holder on click")
                 movieClickListener.onMovieClicked(movieModel)
-                // movieClickListener.onMovieClicked(movieModel, getAdapterPosition())
             }
         }
 
         fun bind(movieModel : MovieModel){
-            println("view holder bind")
-
             ivImage.setImageResource(movieModel.imageRes)
             tvTitle.text = movieModel.name
             tvOverview.text = movieModel.overview
