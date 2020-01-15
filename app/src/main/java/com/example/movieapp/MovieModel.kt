@@ -10,9 +10,9 @@ data class MovieModel(
     @DrawableRes val imageRes: Int,
     val overview: String?
 ) : Parcelable
-/*
 
-  @DrawableRes  val backImageRes: Int = 0,
+/*
+   @DrawableRes  val backImageRes: Int = 0,
     val releaseDate: String,
     val trailerUrl: String
  */

@@ -1,9 +1,6 @@
 package com.example.movieapp
-
-
 import android.content.Context
 import android.os.Bundle
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +9,22 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 
 class MoviesFragment : Fragment(), OnMovieClickListener  {
+
+    companion object {
+        val TAG = MoviesFragment::class.simpleName
+
+        private val ARG_MOVIE = "MovieModel-data"
+
+        fun newInstance(movieModel: MovieModel): MoviesFragment {
+            val fragment = MoviesFragment()
+            val args = Bundle()
+            args.putParcelable(ARG_MOVIE, movieModel)
+            fragment.arguments = args
+            return fragment
+        }
+    }
+
+
 
     private val movies: MutableList<MovieModel> = ArrayList()
     private lateinit var moviesAdapter: Movie_Adapter
@@ -29,6 +42,9 @@ class MoviesFragment : Fragment(), OnMovieClickListener  {
     }
 
 
+    fun MoviesFragment(){
+
+    }
     override fun onCreateView(inflater: LayoutInflater,
                               container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -64,19 +80,20 @@ class MoviesFragment : Fragment(), OnMovieClickListener  {
     }
 
 
-    private fun loadMovies() {
-        movies.add(
-            MovieModel(
-                getString(R.string.Deadpool2),
-                R.drawable.deadpool2,
-                getString(R.string.Deadpool2_overview)
-            )
-        )
+    fun loadMovies() : List<MovieModel>{
+
         movies.add(
             MovieModel(
                 getString(R.string.jurassic_world),
                 R.drawable.jurassic_park,
                 getString(R.string.jurassic_world_overview)
+            )
+        )
+        movies.add(
+            MovieModel(
+                getString(R.string.Deadpool2),
+                R.drawable.deadpool2,
+                getString(R.string.Deadpool2_overview)
             )
         )
         movies.add(
@@ -135,6 +152,8 @@ class MoviesFragment : Fragment(), OnMovieClickListener  {
                 getString(R.string.thor_overview)
             )
         )
+
+        return movies
     }
 
 }
