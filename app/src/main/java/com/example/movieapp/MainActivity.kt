@@ -4,21 +4,31 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.core.content.ContextCompat.startActivity
 import androidx.viewpager.widget.ViewPager
 import kotlinx.android.synthetic.main.movie_details.*
 
-class MainActivity : AppCompatActivity(), OnMovieClickListener{
+class MainActivity : AppCompatActivity(), OnMovieClickListener {
     private val avengers_url = "https://www.youtube.com/watch?v=6ZfuNTqbHE8"
 
 
-    override protected fun onCreate(savedInstanceState: Bundle?) {
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val viewPager: ViewPager = findViewById(R.id.main_activity_pager)
+        //val viewPager: ViewPager = findViewById(R.id.main_activity_pager)
 
+        if (savedInstanceState == null) {
+            val moviesFragment = MoviesFragment()
+            supportFragmentManager
+                .beginTransaction()
+                .add(R.id.activity_main_frame, moviesFragment)
+                .commit()
+        }
+    }
+    /*
         val moviesFragment: MoviesFragment=
             if (savedInstanceState == null) {
-                MoviesFragment().also {
+                MoviesFragment.newInstance() also {
                     supportFragmentManager
                         .beginTransaction()
                         .add(R.id.activity_main_frame, it, MoviesFragment.TAG)
@@ -37,13 +47,13 @@ class MainActivity : AppCompatActivity(), OnMovieClickListener{
 
         val adapter = PagerAdapter(supportFragmentManager, fragments)
         viewPager.adapter = adapter
+*/
 
-    }
 
     override fun onBackPressed() {
         super.onBackPressed()
     }
-
+/*
     override fun onMovieClicked(movie: MovieModel) {
         val detailsFragment = DetailsFragment.newInstance(movie)
 
@@ -52,9 +62,18 @@ class MainActivity : AppCompatActivity(), OnMovieClickListener{
             .addToBackStack(null)
             .replace(R.id.main_activity_pager, detailsFragment)
             .commit()
+    }*/
+
+
+    override fun onMovieClicked(movie: MovieModel){
+        val detailsFragment = DetailsFragment.newInstance(movie)
+
+        supportFragmentManager
+            .beginTransaction()
+            .addToBackStack(null)
+            .replace(R.id.activity_main_frame, detailsFragment)
+            .commit()
     }
-
-
     fun linkToYoutube(view : View){
         var webpage : Uri = Uri.EMPTY
         if(view.id == details_fragment_trailer_btn.id) {
@@ -67,4 +86,5 @@ class MainActivity : AppCompatActivity(), OnMovieClickListener{
             }
         }
     }
+
 }

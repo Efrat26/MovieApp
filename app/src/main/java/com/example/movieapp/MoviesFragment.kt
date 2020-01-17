@@ -41,10 +41,6 @@ class MoviesFragment : Fragment(), OnMovieClickListener  {
         }
     }
 
-
-    fun MoviesFragment(){
-
-    }
     override fun onCreateView(inflater: LayoutInflater,
                               container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
