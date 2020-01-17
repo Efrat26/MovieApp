@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment
 class DetailsFragment : Fragment() {
 
 
+
     private lateinit var posterImage: ImageView
     private lateinit var titleText: TextView
     private lateinit var releaseDateText: TextView
@@ -38,6 +39,7 @@ class DetailsFragment : Fragment() {
     }
 
     companion object {
+        var TAG = DetailsFragment::class.simpleName
         private const val MOVIE_BUNDLE_KEY = "unique_movie_key"
 
         fun newInstance(movie: MovieModel): DetailsFragment {

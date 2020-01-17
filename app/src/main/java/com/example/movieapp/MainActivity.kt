@@ -4,7 +4,6 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import androidx.core.content.ContextCompat.startActivity
 import androidx.viewpager.widget.ViewPager
 import kotlinx.android.synthetic.main.movie_details.*
 
@@ -50,9 +49,13 @@ class MainActivity : AppCompatActivity(), OnMovieClickListener {
         val adapter = PagerAdapter(supportFragmentManager, fragments)
         viewPager.adapter = adapter
 
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.main_activity_pager, fragments[movieIndex])
-            .addToBackStack(null).commit()
+        val frag = supportFragmentManager.findFragmentByTag(DetailsFragment.TAG)
+
+        frag?.let {
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.main_activity_pager, it)
+                .addToBackStack(null).commit()
+        }
 
         /*
         supportFragmentManager

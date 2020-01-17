@@ -2,16 +2,24 @@ package com.example.movieapp
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentStatePagerAdapter
+import androidx.fragment.app.FragmentPagerAdapter
+
 
 class PagerAdapter(
     manager: FragmentManager,
     val fragments: List<Fragment>
-) : FragmentStatePagerAdapter(manager ){
+) : FragmentPagerAdapter(manager){
 
 
-    override fun getItem(position: Int): Fragment =
-        fragments[position]
+    override fun getItem(position: Int): Fragment {
+
+        return fragments[position]
+        //getSupportFragmentManager().findFragmentByTag
+
+        //
+    }
+
+
 
     override fun getCount(): Int =
         fragments.size
