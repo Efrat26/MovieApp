@@ -49,7 +49,9 @@ class MainActivity : AppCompatActivity(), OnMovieClickListener {
         val adapter = PagerAdapter(supportFragmentManager, fragments)
         viewPager.adapter = adapter
 
-        val frag = supportFragmentManager.findFragmentByTag(DetailsFragment.TAG)
+        viewPager.setCurrentItem(movieIndex, false)
+
+        val frag = supportFragmentManager.findFragmentByTag(movies[movieIndex].name)
 
         frag?.let {
             supportFragmentManager.beginTransaction()

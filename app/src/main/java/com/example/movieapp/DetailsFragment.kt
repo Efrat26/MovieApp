@@ -39,12 +39,13 @@ class DetailsFragment : Fragment() {
     }
 
     companion object {
-        var TAG = DetailsFragment::class.simpleName
+        var TAG = "Deadpool 2"::class.simpleName
         private const val MOVIE_BUNDLE_KEY = "unique_movie_key"
 
         fun newInstance(movie: MovieModel): DetailsFragment {
             val fragment = DetailsFragment()
             val args = Bundle()
+            DetailsFragment.TAG = movie.name
             args.putParcelable(MOVIE_BUNDLE_KEY, movie)
             fragment.arguments = args
             return fragment
