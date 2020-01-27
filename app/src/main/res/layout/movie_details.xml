@@ -12,7 +12,7 @@
         android:layout_weight="1"
         android:layout_height="match_parent"
         android:layout_width="match_parent"
-        android:contentDescription="@string/avengers_background_image_description"
+        android:id="@+id/movie_details_poster"
         tools:src="@drawable/avengers_infinity_war_background"
         android:scaleType="fitXY"
         />
@@ -63,13 +63,14 @@
             />
 
         <TextView
-            tools:text="@string/avengers_date"
+            tools:text="@string/released_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="15sp"
             android:textColor="@color/black"
             android:layout_toRightOf="@+id/released"
-            tools:layout_below="@+id/avengers_title"
+            android:layout_alignBaseline="@+id/released"
+            android:textSize="12sp"
+            tools:layout_below="@+id/details_fragment_title"
             android:id="@+id/details_fragment_release_date"
             style="@style/marginLeftFromPreviewImage"
             />

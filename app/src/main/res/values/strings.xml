@@ -7,7 +7,7 @@
     <string name="avengers_infinity_war_title">Avengers: Infinity War</string>
     <string name="movie_trailer">MOVIE TRAILER</string>
     <string name="released">Released:</string>
-    <string name="avengers_date">2018-01-01</string>
+    <string name="released_date">2018-01-01</string>
     <string name="jurassic_world">Jurassic World</string>
     <string name="the_meg">The Meg</string>
     <string name="the_first_purge">The First Purge</string>
@@ -25,5 +25,16 @@
     <string name="ocean8_overview">Five years, eight months, 12 days and counting -- that"'"s how long Debbie Ocean has been devising the biggest heist of her life. She knows what it"'"s going to take -- a team of the best people in the field, starting with her partner-in-crime Lou Miller. Together, they recruit a crew of specialists, including jeweler Amita, street con Constance, suburban mom Tammy, hacker Nine Ball, and fashion designer Rose. Their target -- a necklace that"'"s worth more than $150 million.</string>
     <string name="interstellar_overview">In Earth"'"s future, a global crop blight and second Dust Bowl are slowly rendering the planet uninhabitable. Professor Brand (Michael Caine), a brilliant NASA physicist, is working on plans to save mankind by transporting Earth"'"s population to a new home via a wormhole. But first, Brand must send former NASA pilot Cooper (Matthew McConaughey) and a team of researchers through the wormhole and across the galaxy to find out which of three planets could be mankind"'"s new home.</string>
     <string name="thor_overview">Imprisoned on the other side of the universe, the mighty Thor finds himself in a deadly gladiatorial contest that pits him against the Hulk, his former ally and fellow Avenger. Thor"'"s quest for survival leads him in a race against time to prevent the all-powerful Hela from destroying his home world and the Asgardian civilization.</string>
-    <string name="guardians_of_the_galaxy_overview">Brash space adventurer Peter Quill (Chris Pratt) finds himself the quarry of relentless bounty hunters after he steals an orb coveted by Ronan, a powerful villain. To evade Ronan, Quill is forced into an uneasy truce with four disparate misfits: gun-toting Rocket Raccoon, treelike-humanoid Groot, enigmatic Gamora, and vengeance-driven Drax the Destroyer. But when he discovers the orb"'"s true power and the cosmic threat it poses, Quill must rally his ragtag group to save the universe.</string>>
+    <string name="guardians_of_the_galaxy_overview">Brash space adventurer Peter Quill (Chris Pratt) finds himself the quarry of relentless bounty hunters after he steals an orb coveted by Ronan, a powerful villain. To evade Ronan, Quill is forced into an uneasy truce with four disparate misfits: gun-toting Rocket Raccoon, treelike-humanoid Groot, enigmatic Gamora, and vengeance-driven Drax the Destroyer. But when he discovers the orb"'"s true power and the cosmic threat it poses, Quill must rally his ragtag group to save the universe.</string>
+    <string name="jurassic_world_trailer_link">https://www.youtube.com/watch?v=vn9mMeWcgoM</string>
+    <string name="deadpool2__trailer_link">https://www.youtube.com/watch?v=D86RtevtfrA</string>
+    <string name="avengers_infinty_wars_trailer_link">https://www.youtube.com/watch?v=6ZfuNTqbHE8</string>
+    <string name="black_panther_trailer_link">https://www.youtube.com/watch?v=xjDjIWPwcPU</string>
+    <string name="guardians_of_the_galaxy_trailer_link">https://www.youtube.com/watch?v=d96cjJhvlMA</string>
+    <string name="interstellat_trailer_link">https://www.youtube.com/watch?v=zSWdZVtXT7E</string>
+    <string name="ocean8_trailer_link">https://www.youtube.com/watch?v=MFWF9dU5Zc0</string>
+    <string name="purge_trailer_link">https://www.youtube.com/watch?v=K0LLaybEuzA</string>
+    <string name="meg_trailer_link">https://www.youtube.com/watch?v=udm5jUA-2bs</string>
+    <string name="thor_trailer_link">https://www.youtube.com/watch?v=ue80QwXMRHg</string>
+    >
 </resources>

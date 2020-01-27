@@ -4,12 +4,14 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.activity_movies.view.*
+import kotlinx.android.synthetic.main.movie_details.view.*
 
 
 private class MoviesDiffUtilCallback : DiffUtil.ItemCallback<MovieModel>() {
@@ -62,6 +64,8 @@ class Movie_Adapter(context: Context,
         private val ivImage: ImageView = view.movie_photo
         private val tvTitle: TextView = view.movie_title
         private val tvOverview: TextView = view.movie_overview
+       // private val releasedDate: TextView = view.released
+      //  private val backgroundImage : ImageView = view.movie_details_poster
 
 
         private lateinit var movieModel: MovieModel
@@ -75,7 +79,9 @@ class Movie_Adapter(context: Context,
             ivImage.setImageResource(movieModel.imageRes)
             tvTitle.text = movieModel.name
             tvOverview.text = movieModel.overview
-
+           // releasedDate.text = movieModel.releaseDate
+           // backgroundImage.setImageResource(movieModel.backImageRes)
+            //TODO add here movie details
             this.movieModel = movieModel
         }
     }

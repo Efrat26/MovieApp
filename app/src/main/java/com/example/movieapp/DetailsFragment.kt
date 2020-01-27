@@ -18,6 +18,7 @@ class DetailsFragment : Fragment() {
     private lateinit var releaseDateText: TextView
     private lateinit var trailerButton: Button
     private lateinit var overviewText: TextView
+    private lateinit var backgroundImage: ImageView
 
     override fun onCreateView(inflater: LayoutInflater,
                               container: ViewGroup?,
@@ -36,6 +37,7 @@ class DetailsFragment : Fragment() {
         releaseDateText = view.findViewById(R.id.details_fragment_release_date)
         trailerButton = view.findViewById(R.id.details_fragment_trailer_btn)
         overviewText = view.findViewById(R.id.details_fragment_overview_text)
+        backgroundImage = view.findViewById(R.id.movie_details_poster)
     }
 
     companion object {
@@ -55,6 +57,10 @@ class DetailsFragment : Fragment() {
     fun loadMovie(movie: MovieModel) {
         overviewText.text = movie.overview
         posterImage.setImageResource(movie.imageRes)
+        titleText.text = movie.name
+        releaseDateText.text = movie.releaseDate
+        backgroundImage.setImageResource(movie.backImageRes)
+
     }
 
 }
