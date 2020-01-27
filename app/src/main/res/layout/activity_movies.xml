@@ -9,7 +9,6 @@
         android:id="@+id/movie_photo"
         android:layout_width="90dp"
         android:layout_height="0dp"
-        android:paddingTop="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -18,19 +17,16 @@
     <TextView
         android:id="@+id/movie_title"
         android:layout_width="0dp"
-        android:paddingTop="10dp"
-        android:paddingBottom="5dp"
-        android:textSize="@dimen/movie_title"
-        android:textColor="@android:color/holo_red_light"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintRight_toRightOf="@+id/movie_photo"
-        app:layout_constraintStart_toEndOf="@+id/movie_photo"
-        app:layout_constraintTop_toTopOf="parent"
-        android:paddingStart="1dp"
-        android:paddingLeft="1dp"
-        android:paddingRight="1dp"
+        android:layout_marginStart="@dimen/spacing_s"
+        android:layout_marginLeft="@dimen/spacing_s"
+        android:ellipsize="end"
         android:gravity="start"
+        android:maxLines="1"
+        android:textAppearance="?attr/textAppearanceListItem"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/movie_photo"
+        app:layout_constraintTop_toTopOf="@+id/movie_photo"
         tools:text="@string/Deadpool2" />
 
     <TextView
@@ -42,13 +38,12 @@
         android:gravity="start"
         android:maxLines="4"
         android:textAppearance="?attr/textAppearanceListItemSecondary"
-        app:layout_constraintBottom_toBottomOf="@+id/movie_photo"
+        app:layout_constraintBottom_toBottomOf="@id/movie_photo"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/movie_title"
+        app:layout_constraintStart_toStartOf="@id/movie_title"
         app:layout_constraintTop_toBottomOf="@id/movie_title"
         tools:text="@string/Deadpool2_overview"
-        android:textColor="@android:color/black"
-        android:textSize="@dimen/movie_overview"/>
+        android:textColor="@android:color/black"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

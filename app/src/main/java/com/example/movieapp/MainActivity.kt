@@ -4,7 +4,12 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.FrameLayout
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.constraintlayout.widget.ConstraintSet
 import androidx.viewpager.widget.ViewPager
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.fragment_movies.*
 import kotlinx.android.synthetic.main.movie_details.*
 
 class MainActivity : AppCompatActivity(), OnMovieClickListener {
@@ -14,17 +19,30 @@ class MainActivity : AppCompatActivity(), OnMovieClickListener {
 
     private lateinit var viewPager: ViewPager
 
+    private var tabletFragmentContainer: FrameLayout? = null
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         movies = loadMovies()
         viewPager = findViewById(R.id.main_activity_pager)
+
+        tabletFragmentContainer = findViewById(R.id.activity_main_tablet_frame)
+
         val moviesFragment: MoviesFragment =
-        if (savedInstanceState == null) {
+        if (savedInstanceState == null && tabletFragmentContainer == null) {
             MoviesFragment().also {
                 supportFragmentManager
                     .beginTransaction()
                     .add(R.id.activity_main_frame, it, MoviesFragment.TAG)
+                    .commit()
+            }
+        } else if(savedInstanceState == null && tabletFragmentContainer != null){
+            MoviesFragment().also {
+                supportFragmentManager
+                    .beginTransaction()
+                    .add(R.id.activity_main_tablet_frame, it, MoviesFragment.TAG)
                     .commit()
             }
         } else {
@@ -37,7 +55,11 @@ class MainActivity : AppCompatActivity(), OnMovieClickListener {
         super.onBackPressed()
     }
 
-
+    fun ManageConstraints(){
+        val set = ConstraintSet()
+        set.constrainPercentWidth(movies_fragment_rcv.id,0.4f)
+        set.applyTo(main_activity_constraintlayout)
+    }
 
     override fun onMovieClicked(movie: MovieModel){
         val movieIndex = movies.indexOfFirst{w -> w.name == movie.name}
@@ -53,29 +75,21 @@ class MainActivity : AppCompatActivity(), OnMovieClickListener {
 
         val frag = supportFragmentManager.findFragmentByTag(movies[movieIndex].name)
 
+        ManageConstraints()
         frag?.let {
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.main_activity_pager, it)
-                .addToBackStack(null).commit()
+            if(tabletFragmentContainer == null) {
+                supportFragmentManager.beginTransaction()
+                    .replace(R.id.main_activity_pager, it)
+                    .addToBackStack(null).commit()
+            } else{
+                supportFragmentManager.beginTransaction()
+                    .replace(R.id.activity_main_tablet_frame, it)
+            }
         }
-
-        /*
-        supportFragmentManager
-            .beginTransaction()
-            .addToBackStack(null)
-            .replace(R.id.main_activity_pager, fragments[0])
-            .commit()
-*/
-        //val detailsFragment = DetailsFragment.newInstance(movie)
-            /*
-            supportFragmentManager
-            .beginTransaction()
-            .addToBackStack(null)
-            .replace(R.id.activity_main_frame, viewPager)
-            .commit()*/
 
 
     }
+
     fun linkToYoutube(view : View){
         var webpage : Uri = Uri.EMPTY
         if(view.id == details_fragment_trailer_btn.id) {
