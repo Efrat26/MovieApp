@@ -36,5 +36,7 @@
     <string name="purge_trailer_link">https://www.youtube.com/watch?v=K0LLaybEuzA</string>
     <string name="meg_trailer_link">https://www.youtube.com/watch?v=udm5jUA-2bs</string>
     <string name="thor_trailer_link">https://www.youtube.com/watch?v=ue80QwXMRHg</string>
+    <string name="open_async_task">Open Async Task Activity</string>
+    <string name="open_thread_handler">Open Threads Handler Activity</string>
     >
 </resources>

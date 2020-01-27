@@ -1,14 +1,17 @@
 package com.example.movieapp
 import android.content.Intent
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
 import android.view.View
 import android.widget.FrameLayout
+import android.widget.Toolbar
+import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintSet
 import androidx.viewpager.widget.ViewPager
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_movies.*
+
 
 class MainActivity : AppCompatActivity(), OnMovieClickListener {
     private val avengers_url = "https://www.youtube.com/watch?v=6ZfuNTqbHE8"
@@ -24,8 +27,12 @@ class MainActivity : AppCompatActivity(), OnMovieClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        //add movies recycler view
         movies = loadMovies()
         viewPager = findViewById(R.id.main_activity_pager)
+
+        setSupportActionBar(findViewById(R.id.my_toolbar))
 
         tabletFragmentContainer = findViewById(R.id.activity_main_tablet_frame)
 
@@ -50,6 +57,10 @@ class MainActivity : AppCompatActivity(), OnMovieClickListener {
         moviesFragment.setMoviesList(movies)
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.application_menu, menu)
+        return true
+    }
     override fun onBackPressed() {
         super.onBackPressed()
     }
