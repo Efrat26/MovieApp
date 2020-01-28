@@ -38,5 +38,8 @@
     <string name="thor_trailer_link">https://www.youtube.com/watch?v=ue80QwXMRHg</string>
     <string name="open_async_task">Open Async Task Activity</string>
     <string name="open_thread_handler">Open Threads Handler Activity</string>
+    <string name="Create">Create</string>
+    <string name="Start">Start</string>
+    <string name="Cancel">Cancel</string>
     >
 </resources>

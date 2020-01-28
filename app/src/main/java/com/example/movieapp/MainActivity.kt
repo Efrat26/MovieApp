@@ -3,6 +3,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.FrameLayout
 import android.widget.Toolbar
@@ -61,6 +62,28 @@ class MainActivity : AppCompatActivity(), OnMovieClickListener {
         menuInflater.inflate(R.menu.application_menu, menu)
         return true
     }
+
+    override fun onOptionsItemSelected(item : MenuItem) : Boolean{
+        when(item.toString())
+        {
+            getString(R.string.open_async_task) -> {
+                val openSecondActivity = Intent(this, AsyncTaskActivity::class.java)
+                startActivity(openSecondActivity)
+
+
+            }
+            getString(R.string.open_thread_handler) -> {
+                val openSecondActivity = Intent(this, AsyncTaskActivity::class.java)
+                startActivity(openSecondActivity)
+            }
+            else -> {
+
+            }
+        }
+
+        return true
+    }
+
     override fun onBackPressed() {
         super.onBackPressed()
     }
@@ -225,38 +248,3 @@ class MainActivity : AppCompatActivity(), OnMovieClickListener {
     }
 
 }
-
-/*
-    override fun onMovieClicked(movie: MovieModel) {
-        val detailsFragment = DetailsFragment.newInstance(movie)
-
-        supportFragmentManager
-            .beginTransaction()
-            .addToBackStack(null)
-            .replace(R.id.main_activity_pager, detailsFragment)
-            .commit()
-    }*/
-
-/*
-       val moviesFragment: MoviesFragment=
-           if (savedInstanceState == null) {
-               MoviesFragment.newInstance() also {
-                   supportFragmentManager
-                       .beginTransaction()
-                       .add(R.id.activity_main_frame, it, MoviesFragment.TAG)
-                       .commit()
-               }
-           }else {
-               supportFragmentManager.findFragmentByTag(MoviesFragment.TAG) as MoviesFragment
-           }
-
-
-       val movies = moviesFragment.loadMovies()
-
-       val fragments = movies.map {
-           DetailsFragment.newInstance(it)
-       }
-
-       val adapter = PagerAdapter(supportFragmentManager, fragments)
-       viewPager.adapter = adapter
-*/
