@@ -73,7 +73,7 @@ class MainActivity : AppCompatActivity(), OnMovieClickListener {
 
             }
             getString(R.string.open_thread_handler) -> {
-                val openSecondActivity = Intent(this, AsyncTaskActivity::class.java)
+                val openSecondActivity = Intent(this, MySimpleAsyncTask::class.java)
                 startActivity(openSecondActivity)
             }
             else -> {
