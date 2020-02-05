@@ -1,7 +1,9 @@
 package com.example.movieapp
 
 import android.os.Bundle
+import android.os.Looper
 import android.view.View
+import android.os.Handler
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.counter_fragment_layout.*
@@ -11,7 +13,9 @@ const val THREAD_NAME = "Handler_executor_thread"
 
 class MySimpleAsyncTask: AppCompatActivity() {
 
-    private var IsCancelled = false
+    @Volatile
+    var IsCancelled = false
+        private set
     private lateinit var tV: WeakReference<TextView>
 
     override protected fun onCreate(savedInstanceState: Bundle?) {
@@ -26,14 +30,18 @@ class MySimpleAsyncTask: AppCompatActivity() {
             .commit()
     }
 
+    private fun runOnUiThreadFun(runnable: Runnable) {
+        Handler(Looper.getMainLooper()).post(runnable)
+    }
+
     fun OnCreateClick(view: View){
         tV = WeakReference(counter_tv)
-       execute(10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0)
+        execute(10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0)
     }
 
 
     override fun onStop() {
-       // task.cancel(true)
+        // task.cancel(true)
         cancel()
         super.onStop()
     }
@@ -54,15 +62,15 @@ class MySimpleAsyncTask: AppCompatActivity() {
 
         val thread = Thread(
             Runnable {
-                    for (number in numbers) {
-                        if (IsCancelled) {
-                            break
-                        }
-                        publishProgress(number!!)
-                        Thread.sleep(1000)
+                for (number in numbers) {
+                    if (IsCancelled) {
+                        break
                     }
-                onPostExecute("Done!")
+                    publishProgress(number!!)
+                    Thread.sleep(1000)
                 }
+                runOnUiThreadFun( Thread {onPostExecute("Done!")})
+            }
 
         )
         thread.start()
@@ -76,17 +84,19 @@ class MySimpleAsyncTask: AppCompatActivity() {
 
     fun execute(vararg numbers: Int?){
 
-        onPreExecute()
+        runOnUiThreadFun( Thread {onPreExecute()})
 
         //execute thread
         doInBackground(*numbers)
 
 
 
+
+
     }
 
     fun publishProgress(progress: Int){
-        onProgressUpdate(progress)
+        runOnUiThreadFun( Thread {onProgressUpdate(progress)})
     }
     fun onProgressUpdate(vararg values: Int?){
 
@@ -98,5 +108,4 @@ class MySimpleAsyncTask: AppCompatActivity() {
 
         IsCancelled = true
     }
-
 }

@@ -20,6 +20,11 @@ class CounterFragment : Fragment() {
 
     }
 
-
-
+    companion object {
+        const val FRAGMENT_TAG = "fragment_tag"
+    }
+//
+//    companion object {
+//        const val FRAGMENT_TYPE: String = "fragment_type"
+//    }
 }
