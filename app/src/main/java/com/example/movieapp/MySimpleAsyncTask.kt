@@ -47,12 +47,22 @@ class MySimpleAsyncTask: AppCompatActivity() {
 
     fun OnCreateClick(view: View){
         tV = WeakReference(counter_tv)
-        execute(10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0)
+        IsCancelled = false
+
     }
 
+    fun OnStartClick(view:View){
+        if(!IsCancelled)
+            execute(10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0)
+        else if(::tV.isInitialized)
+            tV.get()?.text = "Please Create Task First!"
 
+    }
+
+    fun OnCancelClick(view:View){
+        cancel()
+    }
     override fun onStop() {
-        // task.cancel(true)
         cancel()
         super.onStop()
     }
@@ -118,5 +128,6 @@ class MySimpleAsyncTask: AppCompatActivity() {
     fun cancel(){
 
         IsCancelled = true
+        tV.get()?.text = "thread has been cancelled"
     }
 }

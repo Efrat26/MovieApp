@@ -29,8 +29,7 @@ class CounterAsyncTask(private val tV: WeakReference<TextView>) : AsyncTask<Int,
     }
 
     override fun onCancelled() {
-        tV.get()?.text = "An error occurred, " +
-                "please try again later :("
+        tV.get()?.text = "task has been cancelled"
     }
 
 }
