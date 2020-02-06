@@ -3,6 +3,7 @@
     android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/cyan"
     >
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal" android:layout_width="match_parent"
@@ -27,8 +28,9 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:text=""
-        android:textColor="@color/black"></TextView>
+        android:text="Counter"
+        android:textColor="@color/black"
+        android:textSize="@dimen/movie_title"></TextView>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

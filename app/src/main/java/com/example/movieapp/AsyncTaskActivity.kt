@@ -3,7 +3,6 @@ package com.example.movieapp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import com.example.movieapp.CounterFragment.Companion.FRAGMENT_TAG
 import kotlinx.android.synthetic.main.counter_fragment_layout.*
 import java.lang.ref.WeakReference
 
@@ -20,13 +19,21 @@ open class AsyncTaskActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.async_task_activity_layout)
 
+        if (savedInstanceState == null){
+            counterFragment = CounterFragment.newInstance()
 
-        counterFragment = CounterFragment()
+            supportFragmentManager
+                .beginTransaction()
+                .add(R.id.async_task_activity_main_frame, counterFragment)
+                .commit()
+        }  else{
+          counterFragment = CounterFragment.newInstance()
+            supportFragmentManager
+                .beginTransaction()
+                .replace(R.id.async_task_activity_main_frame, counterFragment)
+                .commit()
 
-        supportFragmentManager
-           .beginTransaction()
-           .add(R.id.async_task_activity_main_frame, counterFragment)
-            .commit()
+        }
     }
 
     fun OnCreateClick(view: View){

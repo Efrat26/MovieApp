@@ -16,18 +16,29 @@ class MySimpleAsyncTask: AppCompatActivity() {
     @Volatile
     var IsCancelled = false
         private set
+
+    private lateinit var counterFragment: CounterFragment
     private lateinit var tV: WeakReference<TextView>
 
     override protected fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.async_task_activity_layout)
 
-        val counterFragment = CounterFragment()
+        if (savedInstanceState == null){
+            counterFragment = CounterFragment.newInstance()
 
-        supportFragmentManager
-            .beginTransaction()
-            .add(R.id.async_task_activity_main_frame, counterFragment)
-            .commit()
+            supportFragmentManager
+                .beginTransaction()
+                .add(R.id.async_task_activity_main_frame, counterFragment)
+                .commit()
+        }  else{
+            counterFragment = CounterFragment.newInstance()
+            supportFragmentManager
+                .beginTransaction()
+                .replace(R.id.async_task_activity_main_frame, counterFragment)
+                .commit()
+
+        }
     }
 
     private fun runOnUiThreadFun(runnable: Runnable) {

@@ -21,7 +21,11 @@ class CounterFragment : Fragment() {
     }
 
     companion object {
-        const val FRAGMENT_TAG = "fragment_tag"
+        var TAG = "CounterFragTag"::class.simpleName
+        fun newInstance(): CounterFragment {
+            return CounterFragment()
+
+        }
     }
 //
 //    companion object {
